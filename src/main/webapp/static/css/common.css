@@ -1,0 +1,282 @@
+@CHARSET "UTF-8";
+/* ------------------------------------全局定义---------------------------------------- */
+/* 将具有默认margin和padding的标记置零，所有标记的margin、padding都在使用时具体定义 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 修正IE5.x和IE6的斜体溢出bug */
+* html body {
+    overflow: visible;
+}
+
+* html iframe,* html frame {
+    overflow: auto;
+}
+
+* html frameset {
+    overflow: hidden;
+}
+
+/* 常用标签，基本标签默认样式取消，HTML标签，取消基本标签默认样式，防止不同浏览器显示效果不同，text-align:center; 解决不同浏览器居中问题 */
+body {
+    color: #2E4358;
+    background: #D2DAE3;
+    background: url("../image/background_image.jpg");
+    font: 18px/28px Verdana, Arial, sans-serif, "Times New Roman", 宋体;
+    text-align: center;
+}
+
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,tr {
+    margin: 0;
+    padding: 0;
+}
+
+input,select {
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+/* 标签属性，textarea,input 强制输入时内容超出时换行 */
+textarea,input {
+    word-wrap: break-word;
+    word-break: break-all;
+    padding: 0px;
+}
+
+/* 清除ul列表标记的样式，ul列表更多的用在不需要列表前置符号的样式里 */
+li {
+    float:left;
+    list-style-type: none;
+}
+
+/* 定义图片边框，当图片作为链接内容被填充时，会有默认边框出现，重定义掉 */
+img {
+    border: 0 none;
+}
+
+/* 定义默认的链接样式，仅仅是作为默认样式提供，可以在各自的实例中覆盖掉 */
+a:link,a:visited {
+    color: #04C;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #F60;
+    text-decoration: underline;
+}
+
+/* 去掉链接的虚线框 */
+a {
+    outline: none;
+    star: expression(this.onFocus = this.blur ());
+}
+
+/* 定义H系列标签，覆盖H系列标签默认属性 */
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+h6 {
+    font-size: 12px;
+}
+
+a:link,a:visited {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover,a:active {
+    text-decoration: underline;
+    color: #f60;
+}
+
+input[type="text"],textarea {
+    outline: none;
+    resize: none
+}
+
+input[type="text"], input[type="button"], input[type="reset"], input[type="date"], textarea, input[class="laydate-icon"] {
+    border: 1px solid;
+    border-radius: 3px;
+    maxlength: 200;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+img, input, button, a {
+    cursor: pointer;
+}
+
+th,td {
+    padding: 0;
+}
+
+.disabledScreen {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 20;
+    opacity: 0.3;
+    background: black;
+    filter: alpha(opacity = 20);
+}
+
+.popWin {
+    width: 400px;
+    height: 200px;
+    color: #0A0A0A;
+    border: 1px solid #2E4358;
+    border-radius: 5px;
+    position: fixed;
+    z-index: 30;
+    background: white;
+    margin-left: -170px;
+    top: 40%;
+    left: 50%;
+    text-align: center;
+}
+
+.popWin .close {
+    position: relative;
+    left: 180px;
+    top: 10px;
+}
+
+.popWin .title {
+    margin-top: 30px;
+    font-size: 14px;
+    font-family: arial;
+    text-align: center;
+    display: inline-block;
+}
+
+.popWin .title span {
+    display: block;
+    width: 262px;
+    word-wrap: break-word;
+}
+
+.popWin .click {
+    height: 50px;
+    margin-top: 30px;
+    "
+}
+
+.popWin .clickButton {
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 3px;
+    background: #55595d;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.popWin .clickButton strong {
+    color: white;
+}
+
+ul li a, ul li a:visited {
+    background-color: #2E4358; /* 背景色 */
+    color: #FFF; /* 文字颜色 */
+    display: block; /* 此元素将显示为块级元素，此元素前后会带有换行符 */
+    line-height: 2em; /* 行高 */
+    padding: 10px 30px; /* 内部填充的距离 */
+    text-decoration: none; /* 不显示超链接下划线 */
+    white-space: nowrap; /* 对于文本内的空白处，不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。 */
+}
+/* 所有class为menu的div中的ul中的a样式(鼠标移动到元素中的样式) */
+ul li a:hover {
+    background-color: #AAAAAF; /* 背景色 */
+    color: #465c71; /* 文字颜色 */
+    text-decoration: none; /* 不显示超链接下划线 */
+}
+/* 所有class为menu的div中的ul中的a样式(鼠标点击元素时的样式) */
+ul li a:active {
+    background-color: #465c71; /* 背景色 */
+    color: #cfdbe6; /* 文字颜色 */
+    text-decoration: none; /* 不显示超链接下划线 */
+}
+
+.mainContent {
+    width: 1260px;
+    height: 548px;
+    margin: 0 auto;
+    background-color: #AAAAAF;
+}
+
+.navBorder {
+    width: 100%;
+    height: 56px;
+    margin: 0 auto;
+    background-color: #2E4358;
+}
+
+input[type="button"] {
+    width: 60px;
+    height: 30px;
+    border: 0px;
+    background-color: #55595d;
+    color: #FFF;
+    font-size: 12px;
+}
+
+input[type="text"], input[type="date"], input[type="submit"], input[class="laydate-icon"] {
+    width: 150px;
+    height: 30px;
+    border: 0px;
+    text-indent: 10px;
+    font-size: 12px;
+}
+
+.searchBoxFunction {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 1260px;
+    margin: 0 auto;
+}
+
+.searchBoxFunction input {
+    margin: 0 50px;
+}
+
+#eChartsMain {
+    height: 450px;
+    width: 1238px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: #D2DAE3;
+}
+
+.navBorder li{
+    width: 315px;
+}
+
+.nav {
+    width: 1260px;
+    height: 56px;
+    margin: 0 auto;
+}

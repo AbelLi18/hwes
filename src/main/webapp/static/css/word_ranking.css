@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+.mainContent table {
+    width: 400px;
+    margin-left: 10px;
+}
+
+.mainContent table tr {
+    height: 38px;
+}
+
+body div[class="mainContent"] {
+    padding-top: 30px;
+    height: 520px;
+}
+
+#eChartsMain {
+    position: relative;
+    right: 20px;
+}
