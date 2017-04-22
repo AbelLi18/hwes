@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>热词排行</title>
-    <link rel="stylesheet" type="text/css" href="/hwes_springmvc/static/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/hwes_springmvc/static/css/common.css" />
-    <link rel="stylesheet" type="text/css" href="/hwes_springmvc/static/css/word_ranking.css" />
-    <link rel="stylesheet" type="text/css" href="/hwes_springmvc/static/css/paging.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/word_ranking.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/paging.css" />
 </head>
     <body>
-        <%@ include file="header.jsp" %>
         <div class="navBorder">
             <div class="nav">
                 <ul>
@@ -49,10 +48,10 @@
         <%@ include file="footer.jsp" %>
     </body>
     
-    <script src="/hwes_springmvc/static/js/jquery-1.10.2.min.js"></script>
-    <script src="/hwes_springmvc/static/js/common.js"></script>
-    <script src="/hwes_springmvc/static/js/query.js"></script>
-    <script src="/hwes_springmvc/static/js/paging.js"></script>
+    <script src="static/js/jquery-1.10.2.min.js"></script>
+    <script src="static/js/common.js"></script>
+    <script src="static/js/query.js"></script>
+    <script src="static/js/paging.js"></script>
     <script type="text/javascript">
         $("#firstKeyword").attr("value", "${firstKeyword}");
         $("#secondKeyword").attr("value", "${secondKeyword}");
@@ -64,7 +63,7 @@
     </script>
     <!--Step:2 Import echarts.js-->
     <!--Step:2 引入echarts.js-->
-    <script src="/hwes_springmvc/static/js/echarts.js"></script>
+    <script src="static/js/echarts.js"></script>
     <script type="text/javascript">
         function createRandomItemStyle() {
             return {
@@ -82,7 +81,7 @@
         // Step:3 为模块加载器配置echarts的路径，从当前页面链接到echarts.js，定义所需图表路径
         require.config({
             paths: {
-                echarts: '/hwes_springmvc/static/js'
+                echarts: 'static/js'
             }
         });
         

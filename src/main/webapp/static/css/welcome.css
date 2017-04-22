@@ -44,6 +44,11 @@ div[id="wordTrend"] h3, div[id="wordZone"] h3, div[id="wordProperty"] h3 {
     left: 0px;
 }
 
+#functionTab div[id="wordRanking"] tr {
+    height: 28px;
+    font-size: 18px;
+}
+
 #functionTab div[id="wordTrend"] {
     width: 250px;
     height: 180px;

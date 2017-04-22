@@ -1,23 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>地域解读</title>
-    <link rel="stylesheet" type="text/css" href="/hwes_springmvc/static/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/hwes_springmvc/static/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/common.css" />
 </head>
     <body>
         <!-- disabled screen and pop win -->
         <div class="disabledScreen" id="screenMark" style="display:none"></div>
         <div class="popWin" id="popWin" style="display:none">
-          <div class="close" onclick="cancelPop()"><img src="/hwes_springmvc/static/image/BTN_Close_16x16.png"></div>
+          <div class="close" onclick="cancelPop()"><img src="static/image/BTN_Close_16x16.png"></div>
           <div class="title"><span id="innerPop"></span></div>
           <div class="click" id="confirmWin">
             <div class="clickButton" onclick="cancelPop()"><strong>知道了</strong></div>
           </div>
         </div>
-        <%@ include file="header.jsp" %>
         <div class="navBorder">
             <div class="nav">
                 <ul>
@@ -47,10 +47,10 @@
     </body>
     <!--Step:2 Import echarts.js-->
     <!--Step:2 引入echarts.js-->
-    <script src="/hwes_springmvc/static/js/echarts.js"></script>
-    <script src="/hwes_springmvc/static/js/jquery-1.10.2.min.js"></script>
-    <script src="/hwes_springmvc/static/js/common.js"></script>
-    <script src="/hwes_springmvc/static/conponent/laydate/laydate.js"></script>
+    <script src="static/js/echarts.js"></script>
+    <script src="static/js/jquery-1.10.2.min.js"></script>
+    <script src="static/js/common.js"></script>
+    <script src="static/conponent/laydate/laydate.js"></script>
     <script type="text/javascript">
         var firstKeyword = "${firstKeyword}";
         var secondKeyword = "${secondKeyword}";
@@ -66,7 +66,7 @@
         // Step:3 为模块加载器配置echarts的路径，从当前页面链接到echarts.js，定义所需图表路径
         require.config({
             paths: {
-                echarts: '/hwes_springmvc/static/js'
+                echarts: 'static/js'
             }
         });
         

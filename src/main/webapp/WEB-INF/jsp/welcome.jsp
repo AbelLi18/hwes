@@ -1,25 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>热词指数</title>
-    <link rel="stylesheet" type="text/css" href="/hwes_springmvc/static/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/hwes_springmvc/static/css/common.css" />
-    <link rel="stylesheet" type="text/css" href="/hwes_springmvc/static/css/welcome.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/welcome.css" />
 </head>
     <body>
         <!-- disabled screen and pop win -->
         <div class="disabledScreen" id="screenMark" style="display:none"></div>
         <div class="popWin" id="popWin" style="display:none">
-          <div class="close" onclick="cancelPop()"><img src="/hwes_springmvc/static/image/BTN_Close_16x16.png"></div>
+          <div class="close" onclick="cancelPop()"><img src="static/image/BTN_Close_16x16.png"></div>
           <div class="title"><span id="innerPop"></span></div>
           <div class="click" id="confirmWin">
             <div class="clickButton" onclick="cancelPop()"><strong>知道了</strong></div>
           </div>
         </div>
-        <%@ include file="header.jsp" %>
         <div class="mainContent">
             <!-- search box -->
             <div id="searchBox">
@@ -67,8 +66,8 @@
         </div>
         <%@ include file="footer.jsp" %>
     </body>
-    <script src="/hwes_springmvc/static/js/jquery-1.10.2.min.js"></script>
-    <script src="/hwes_springmvc/static/js/common.js"></script>
+    <script src="static/js/jquery-1.10.2.min.js"></script>
+    <script src="static/js/common.js"></script>
     <script type="text/javascript">
         function submitSearch() {
             if ($("#searchKeyword").val().trim()) {

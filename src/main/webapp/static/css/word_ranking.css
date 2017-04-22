@@ -17,3 +17,7 @@ body div[class="mainContent"] {
     position: relative;
     right: 20px;
 }
+
+tr td {
+    text-align: center;
+}

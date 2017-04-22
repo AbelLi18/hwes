@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>属性分析</title>
-    <link rel="stylesheet" type="text/css" href="/hwes_springmvc/static/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/hwes_springmvc/static/css/common.css" />
-    <link rel="stylesheet" type="text/css" href="/hwes_springmvc/static/css/word_property.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/word_property.css" />
 </head>
     <body>
         <!-- disabled screen and pop win -->
@@ -19,7 +19,6 @@
             <div class="clickButton" onclick="cancelPop()"><strong>知道了</strong></div>
           </div>
         </div>
-        <%@ include file="header.jsp" %>
         <div class="navBorder">
             <div class="nav">
                 <ul>
@@ -47,9 +46,9 @@
         </div>
         <%@ include file="footer.jsp" %>
     </body>
-    <script src="/hwes_springmvc/static/js/jquery-1.10.2.min.js"></script>
-    <script src="/hwes_springmvc/static/js/common.js"></script>
-    <script src="/hwes_springmvc/static/conponent/laydate/laydate.js"></script>
+    <script src="static/js/jquery-1.10.2.min.js"></script>
+    <script src="static/js/common.js"></script>
+    <script src="static/conponent/laydate/laydate.js"></script>
     <script type="text/javascript">
         var firstKeyword = "${firstKeyword}";
         var secondKeyword = "${secondKeyword}";

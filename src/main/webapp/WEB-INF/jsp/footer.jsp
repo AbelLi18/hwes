@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="common.jsp"%>
 <!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/hwes_springmvc/static/css/footer.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/footer.css" rel="stylesheet" type="text/css" />
     <title>footer</title>
   </head>
   <body>
