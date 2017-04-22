@@ -5,8 +5,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>热词指数</title>
-    <link rel="stylesheet" type="text/css" href="static/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="static/css/common.css" />
     <link rel="stylesheet" type="text/css" href="static/css/welcome.css" />
 </head>
     <body>

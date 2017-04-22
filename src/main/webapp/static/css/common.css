@@ -209,7 +209,7 @@ ul li a, ul li a:visited {
 }
 /* 所有class为menu的div中的ul中的a样式(鼠标移动到元素中的样式) */
 ul li a:hover {
-    background-color: #AAAAAF; /* 背景色 */
+    background-color: #8080ff; /* 背景色 */
     color: #465c71; /* 文字颜色 */
     text-decoration: none; /* 不显示超链接下划线 */
 }
@@ -273,6 +273,7 @@ input[type="text"], input[type="date"], input[type="submit"], input[class="layda
 
 .navBorder li{
     width: 315px;
+    color: #FFF;
 }
 
 .nav {

@@ -5,8 +5,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>热词排行</title>
-    <link rel="stylesheet" type="text/css" href="static/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="static/css/common.css" />
     <link rel="stylesheet" type="text/css" href="static/css/word_ranking.css" />
     <link rel="stylesheet" type="text/css" href="static/css/paging.css" />
 </head>
@@ -14,10 +12,10 @@
         <div class="navBorder">
             <div class="nav">
                 <ul>
-                    <li><a href="wordRanking">热词排行</a></li>
-                    <li><a href="wordTrend">热词趋势</a></li>
-                    <li><a href="wordZone">地域解读</a></li>
-                    <li><a href="wordProperty">属性分析</a></li>
+                    <li><a id="wordRanking" href="wordRanking">热词排行</a></li>
+                    <li><a id="wordTrend" href="wordTrend">热词趋势</a></li>
+                    <li><a id="wordZone" href="wordZone">地域解读</a></li>
+                    <li><a id="wordProperty"href="wordProperty">热词语境</a></li>
                 </ul>
             </div>
         </div>
@@ -53,6 +51,11 @@
     <script src="static/js/query.js"></script>
     <script src="static/js/paging.js"></script>
     <script type="text/javascript">
+        $("#wordRanking:parent").css({
+            "background-color": "#AAAAAF",
+            "color": "#465c71"
+            });
+
         $("#firstKeyword").attr("value", "${firstKeyword}");
         $("#secondKeyword").attr("value", "${secondKeyword}");
         $("#actionURL").attr("value", "wordRanking");

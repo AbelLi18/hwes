@@ -4,10 +4,10 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>属性分析</title>
-    <link rel="stylesheet" type="text/css" href="static/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="static/css/common.css" />
+    <title>热词语境</title>
     <link rel="stylesheet" type="text/css" href="static/css/word_property.css" />
+    <script type="text/javascript" src="static/js/init.js"></script>
+    <script type="text/javascript" src="static/js/easing.js"></script>
 </head>
     <body>
         <!-- disabled screen and pop win -->
@@ -25,7 +25,7 @@
                     <li><a id="wordRanking" class="navSelector">热词排行</a></li>
                     <li><a id="wordTrend" class="navSelector">热词趋势</a></li>
                     <li><a id="wordZone" class="navSelector">地域解读</a></li>
-                    <li><a id="wordProperty" class="navSelector">属性分析</a></li>
+                    <li><a id="wordProperty" class="navSelector">热词语境</a></li>
                 </ul>
             </div>
         </div>
@@ -50,6 +50,11 @@
     <script src="static/js/common.js"></script>
     <script src="static/conponent/laydate/laydate.js"></script>
     <script type="text/javascript">
+        $("#wordProperty:parent").css({
+            "background-color": "#AAAAAF",
+            "color": "#465c71"
+            });
+        
         var firstKeyword = "${firstKeyword}";
         var secondKeyword = "${secondKeyword}";
         $("#firstKeyword").attr("value", firstKeyword);

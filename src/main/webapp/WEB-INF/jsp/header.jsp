@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" href="static/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="static/css/common.css" />
     <link rel="stylesheet" type="text/css" href="static/css/header.css" />
-    <title>header</title>
   </head>
   <body>
     <div id="header">

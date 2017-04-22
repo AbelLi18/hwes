@@ -5,8 +5,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>热词趋势</title>
-    <link rel="stylesheet" type="text/css" href="static/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="static/css/common.css" />
 </head>
     <body>
         <!-- disabled screen and pop win -->
@@ -21,10 +19,10 @@
         <div class="navBorder">
             <div class="nav">
                 <ul>
-                    <li id="wordRanking" class="navSelector"><a>热词排行</a></li>
-                    <li id="wordTrend" class="navSelector"><a>热词趋势</a></li>
-                    <li id="wordZone" class="navSelector"><a>地域解读</a></li>
-                    <li id="wordProperty" class="navSelector"><a>属性分析</a></li>
+                    <li><a id="wordRanking" class="navSelector">热词排行</a></li>
+                    <li><a id="wordTrend" class="navSelector">热词趋势</a></li>
+                    <li><a id="wordZone" class="navSelector">地域解读</a></li>
+                    <li><a id="wordProperty" class="navSelector">热词语境</a></li>
                 </ul>
             </div>
         </div>
@@ -52,6 +50,11 @@
     <script src="static/js/common.js"></script>
     <script src="static/conponent/laydate/laydate.js"></script>
     <script type="text/javascript">
+        $("#wordTrend:parent").css({
+            "background-color": "#AAAAAF",
+            "color": "#465c71"
+            });
+    
         var xAxisData = "${xAxisData}".split(",");
         var firstWordTrendData = "${firstWordTrendData}".split(",");
         var secondWordTrendData = "${secondWordTrendData}".split(",");
