@@ -5,6 +5,7 @@ import com.abel.hwes.dao.impl.WordTrendDaoImpl;
 import com.abel.hwes.model.SearchBox;
 import com.abel.hwes.model.WordTrend;
 import com.abel.hwes.service.WordTrendService;
+import com.abel.hwes.util.WordTrendListFormatUtil;
 
 public class WordTrendServiceImpl implements WordTrendService {
 
@@ -14,8 +15,9 @@ public class WordTrendServiceImpl implements WordTrendService {
         this.wordTrendDao = wordTrendDao;
     }
 
+    @Override
     public SearchBox<WordTrend> getWordTrendList(SearchBox<WordTrend> searchBox) {
         wordTrendDao = new WordTrendDaoImpl();
-        return wordTrendDao.getWordTrendList(searchBox);
+        return WordTrendListFormatUtil.changeListToMap(wordTrendDao.getWordTrendList(searchBox));
     }
 }

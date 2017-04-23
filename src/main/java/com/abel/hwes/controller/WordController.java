@@ -1,6 +1,11 @@
 package com.abel.hwes.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -131,32 +136,57 @@ public class WordController {
 
         searchBox = wordTrendService.getWordTrendList(searchBox);
 
-        List<WordTrend> firstWordTrendList = searchBox.getFirstWordList();
-        List<WordTrend> secondWordTrendList = searchBox.getSecondWordList();
+        Map<Date, WordTrend> firstWordTrendMap = searchBox.getFirstWordMap();
+        Map<Date, WordTrend> secondWordTrendMap = searchBox.getSecondWordMap();
+        // 存储横轴信息
         StringBuffer xAxisData = new StringBuffer();
+        // 存储纵轴信息
         StringBuffer firstWordTrendData = new StringBuffer();
         StringBuffer secondWordTrendData = new StringBuffer();
-        if (firstWordTrendList != null) {
-            for (int i = 0; i < firstWordTrendList.size(); i++) {
-                if (i == 0) {
-                    xAxisData.append(firstWordTrendList.get(i).getSearchDate());
-                    firstWordTrendData.append(firstWordTrendList.get(i).getTotalCount());
+
+        // 遍历起点和终点
+        Date startDate = searchBox.getStartDate();
+        Date endDate = searchBox.getEndDate();
+
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(startDate);
+        Date indexDate = calendar.getTime();
+        // 格式化横轴日期
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        if (firstWordTrendMap != null) {
+            // 根据所选范围遍历数据存入StringBuffer中
+            while(indexDate.getTime() <= endDate.getTime()) {
+                WordTrend wordTrend = firstWordTrendMap.get(indexDate);
+                if (indexDate.getTime() == startDate.getTime()) {
+                    xAxisData.append(sdf.format(indexDate));
+                    firstWordTrendData.append(wordTrend.getTotalCount());
                 } else {
-                    xAxisData.append(Constants.COMMA + firstWordTrendList.get(i).getSearchDate());
-                    firstWordTrendData.append(Constants.COMMA + firstWordTrendList.get(i).getTotalCount());
+                    xAxisData.append(Constants.COMMA + sdf.format(indexDate));
+                    firstWordTrendData.append(Constants.COMMA + wordTrend.getTotalCount());
                 }
+
+                // 向后增加一天， 第二个参数为负则为向前减少一天
+                calendar.add(calendar.DATE, 1);
+                indexDate = calendar.getTime();
             }
+
             mv.addObject("firstWordTrendData", firstWordTrendData.toString());
             mv.addObject("firstKeyword", searchBox.getFirstKeyword());
         }
 
-        if (secondWordTrendList != null) {
-            for (int i = 0; i < secondWordTrendList.size(); i++) {
-                if (i == 0) {
-                    secondWordTrendData.append(secondWordTrendList.get(i).getTotalCount());
+        if (secondWordTrendMap != null) {
+            while(indexDate.getTime() <= endDate.getTime()) {
+                WordTrend wordTrend = secondWordTrendMap.get(indexDate);
+                if (indexDate.getTime() == startDate.getTime()) {
+                    xAxisData.append(sdf.format(indexDate));
+                    secondWordTrendData.append(wordTrend.getTotalCount());
                 } else {
-                    secondWordTrendData.append(Constants.COMMA + secondWordTrendList.get(i).getTotalCount());
+                    xAxisData.append(Constants.COMMA + sdf.format(indexDate));
+                    secondWordTrendData.append(Constants.COMMA + wordTrend.getTotalCount());
                 }
+
+                calendar.add(calendar.DATE, 1);
+                indexDate = calendar.getTime();
             }
             mv.addObject("secondWordTrendData", secondWordTrendData.toString());
             mv.addObject("secondKeyword", searchBox.getSecondKeyword());

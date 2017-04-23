@@ -2,6 +2,7 @@ package com.abel.hwes.model;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class SearchBox<T> {
 
@@ -11,6 +12,24 @@ public class SearchBox<T> {
     private Date endDate;
     private List<T> firstWordList;
     private List<T> secondWordList;
+    private Map<Date, T> firstWordMap;
+    private Map<Date, T> secondWordMap;
+
+    public Map<Date, T> getFirstWordMap() {
+        return firstWordMap;
+    }
+
+    public void setFirstWordMap(Map<Date, T> firstWordMap) {
+        this.firstWordMap = firstWordMap;
+    }
+
+    public Map<Date, T> getSecondWordMap() {
+        return secondWordMap;
+    }
+
+    public void setSecondWordMap(Map<Date, T> secondWordMap) {
+        this.secondWordMap = secondWordMap;
+    }
 
     public void setSecondWordList(List<T> secondWordList) {
         this.secondWordList = secondWordList;
