@@ -58,7 +58,7 @@
                 <br><br>
                 <!-- property analysis-->
                 <div id="wordProperty" class="homeNav">
-                    <h3>属性分析</h3>
+                    <h3>热词语境</h3>
                 </div>
             </div>
         </div>
