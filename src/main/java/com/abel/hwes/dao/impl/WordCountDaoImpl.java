@@ -19,6 +19,7 @@ public class WordCountDaoImpl implements WordCountDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    @Override
     public List<WordCount> getWordList() {
         String sql = "SELECT keyword, total_count FROM word_count ORDER BY total_count DESC LIMIT 0, 10";
         jdbcTemplate = new JDBCTemplate<WordCount>();
@@ -39,10 +40,11 @@ public class WordCountDaoImpl implements WordCountDao {
         });
     }
 
+    @Override
     public PageBean<WordCount> getWordList(PageBean<WordCount> pageBean) {
         String sql = "SELECT keyword, total_count FROM word_count ORDER BY total_count DESC LIMIT ?, ?";
         jdbcTemplate = new JDBCTemplate<WordCount>();
-        final Object[] params = {pageBean.getCurrentPage() - 1, pageBean.getPageSize()};
+        final Object[] params = {pageBean.getStart() , pageBean.getPageSize()};
         pageBean.setList(jdbcTemplate.query(sql, new JDBCAbstractCallBack<WordCount>() {
             @Override
             public WordCount rsToObject(ResultSet rs) throws SQLException {
@@ -64,6 +66,7 @@ public class WordCountDaoImpl implements WordCountDao {
         return pageBean;
     }
 
+    @Override
     public int getTotalCount() {
         String sql = "SELECT count(keyword) FROM word_count";
         JDBCTemplate<Integer> jdbc = new JDBCTemplate<Integer>();

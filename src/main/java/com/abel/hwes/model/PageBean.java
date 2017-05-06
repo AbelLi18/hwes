@@ -33,7 +33,7 @@ public class PageBean<T> {
             currentPage = 1;
         }
         // 根据当前页计算起始和结束条目
-        this.start = (currentPage - 1) * pageSize + 1;
+        this.start = (currentPage - 1) * pageSize;
         this.end = currentPage * pageSize;
     }
 

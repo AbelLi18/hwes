@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.abel.hwes.Constants;
 import com.abel.hwes.model.PageBean;
@@ -50,7 +51,7 @@ public class WordController {
     }
 
     @RequestMapping(value="wordProperty", method = {RequestMethod.GET, RequestMethod.POST})
-    public ModelAndView wordProperty(HttpServletRequest request){
+    public ModelAndView wordProperty(HttpServletRequest request, RedirectAttributes redirectAttributes){
         ModelAndView mv = new ModelAndView();
 
         WordPropertyService wordPropertyService = new WordPropertyServiceImpl();
@@ -59,6 +60,7 @@ public class WordController {
         String secondKeyword = request.getParameter("secondKeyword");
         if (!StringUtil.isEmpty(searchKeyword)) {
             firstKeyword = searchKeyword;
+            redirectAttributes.addFlashAttribute("defaultKeyword", firstKeyword);
         } else if (StringUtil.isEmpty(firstKeyword) && StringUtil.isEmpty(secondKeyword)) {
             firstKeyword = (String) request.getSession().getAttribute("defaultKeyword");
         }
@@ -108,7 +110,7 @@ public class WordController {
     }
 
     @RequestMapping(value="wordTrend", method = {RequestMethod.GET, RequestMethod.POST})
-    public ModelAndView wordTrend(HttpServletRequest request){
+    public ModelAndView wordTrend(HttpServletRequest request, RedirectAttributes redirectAttributes){
         ModelAndView mv = new ModelAndView();
 
         WordTrendService wordTrendService = new WordTrendServiceImpl();
@@ -124,8 +126,10 @@ public class WordController {
             } else {
                 searchBox.setFirstKeyword(firstKeyword);
             }
+            redirectAttributes.addFlashAttribute("defaultKeyword", firstKeyword);
         } else if (!StringUtil.isEmpty(searchKeyword)) {
             searchBox.setFirstKeyword(searchKeyword);
+            redirectAttributes.addFlashAttribute("defaultKeyword", searchKeyword);
         } else {
             searchBox.setFirstKeyword((String) request.getSession().getAttribute("defaultKeyword"));
         }
@@ -174,14 +178,14 @@ public class WordController {
             mv.addObject("firstKeyword", searchBox.getFirstKeyword());
         }
 
+        calendar.setTime(startDate);
+        indexDate = calendar.getTime();
         if (secondWordTrendMap != null) {
             while(indexDate.getTime() <= endDate.getTime()) {
                 WordTrend wordTrend = secondWordTrendMap.get(indexDate);
                 if (indexDate.getTime() == startDate.getTime()) {
-                    xAxisData.append(sdf.format(indexDate));
                     secondWordTrendData.append(wordTrend.getTotalCount());
                 } else {
-                    xAxisData.append(Constants.COMMA + sdf.format(indexDate));
                     secondWordTrendData.append(Constants.COMMA + wordTrend.getTotalCount());
                 }
 
@@ -200,7 +204,7 @@ public class WordController {
     }
 
     @RequestMapping(value="wordZone", method = {RequestMethod.GET, RequestMethod.POST})
-    public ModelAndView wordZone(HttpServletRequest request){
+    public ModelAndView wordZone(HttpServletRequest request, RedirectAttributes redirectAttributes){
         ModelAndView mv = new ModelAndView();
 
         WordZoneService wordZoneService = new WordZoneServiceImpl();
@@ -216,8 +220,10 @@ public class WordController {
             } else {
                 searchBox.setFirstKeyword(firstKeyword);
             }
+            redirectAttributes.addFlashAttribute("defaultKeyword", firstKeyword);
         } else if (!StringUtil.isEmpty(searchKeyword)) {
             searchBox.setFirstKeyword(searchKeyword);
+            redirectAttributes.addFlashAttribute("defaultKeyword", searchKeyword);
         } else {
             searchBox.setFirstKeyword((String) request.getSession().getAttribute("defaultKeyword"));
         }

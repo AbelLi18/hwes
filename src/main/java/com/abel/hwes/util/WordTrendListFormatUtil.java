@@ -24,9 +24,10 @@ public class WordTrendListFormatUtil {
             searchBox.setFirstWordMap(traverseListToMap(firstWordList, defaultWordMap));
         }
 
+        defaultWordMap = loopGetDefaultWordMap(searchBox.getStartDate(), searchBox.getEndDate());
         if (!StringUtil.isEmpty(searchBox.getSecondKeyword())) {
             List<WordTrend> secondWordList = searchBox.getSecondWordList();
-            searchBox.setFirstWordMap(traverseListToMap(secondWordList, defaultWordMap));
+            searchBox.setSecondWordMap(traverseListToMap(secondWordList, defaultWordMap));
         }
         return searchBox;
     }
@@ -48,22 +49,6 @@ public class WordTrendListFormatUtil {
             indexDate = calendar.getTime();
         }
 
-        // 2006-08-25 数据缺失，此处将取24日和26日的平均值作为25的搜索量
-        // TODO
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//        try {
-//            System.out.println(indexDate);
-//            System.out.println();
-//            System.out.println(":" + defaultWordMap.get(indexDate));
-//            System.out.println();
-//            System.out.println(indexDate);
-//            int totalCount = Integer.parseInt(defaultWordMap.get(sdf.parse("2006-08-24")).getTotalCount())
-//                + Integer.parseInt(defaultWordMap.get(sdf.parse("2006-08-26")).getTotalCount());
-//            System.out.println(totalCount);
-//            defaultWordMap.get(sdf.parse("2006-08-25")).setTotalCount("" + totalCount / 2);
-//        } catch (Exception e) {
-//            return defaultWordMap;
-//        }
         return defaultWordMap;
     }
 
