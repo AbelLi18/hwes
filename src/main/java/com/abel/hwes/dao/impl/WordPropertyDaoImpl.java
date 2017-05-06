@@ -26,7 +26,7 @@ public class WordPropertyDaoImpl implements WordPropertyDao {
         return jdbcTemplate.query(sql, new JDBCAbstractCallBack<String>() {
             @Override
             public String rsToObject(ResultSet rs) throws SQLException {
-                return StringUtil.moveSpecialChar(rs.getString("context"));
+                return StringUtil.trimString(StringUtil.moveSpecialChar(rs.getString("context")));
             }
 
             @Override

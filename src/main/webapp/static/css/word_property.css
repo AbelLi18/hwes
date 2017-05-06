@@ -28,6 +28,6 @@ span {
     font-size: 24px;
 }
 
-.laydate-icon {
+input[class="laydate-icon"] {
     cursor: not-allowed;
 }

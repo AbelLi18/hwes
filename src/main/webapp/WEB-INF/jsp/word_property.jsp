@@ -61,7 +61,6 @@
         $("#secondKeyword").attr("value", secondKeyword);
         $("#actionURL").attr("value", "wordProperty");
         
-        
         var html = '<div class="wordContext"><label>没有搜索到相关热词！</label></div>';
         if (firstKeyword && secondKeyword) {
             html = '<div class="wordContext"><label>相关搜索 : </label><span>${firstKeyword}</span><br><br>' +
@@ -78,6 +77,7 @@
                        '<a href="https://www.sogou.com/web?query=${wordContext}">${wordContext}</a><br>' +
                    '</c:forEach></div>';
         }
+        
         $("#wordHotSearch").html(html);
     </script>
 </html>

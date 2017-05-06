@@ -32,8 +32,22 @@ public class StringUtil {
 
     public static String moveSpecialChar(String str) {
         if (!isEmpty(str)) {
-            str = str.replace("\"", "");
+            str = str.replaceAll("\"", "");
+            str = str.replaceAll("\\s", "");
             return str;
+        }
+        return "";
+    }
+
+    public static String trimString(String str)
+    {
+        if (!isEmpty(str)) {
+            int start = 0,end = str.length()-1;
+            while(start<=end && str.charAt(start)==' ')
+                start++;
+            while(start<=end && str.charAt(end)==' ')
+                end--;
+            return str.substring(start,end+1);
         }
         return "";
     }
