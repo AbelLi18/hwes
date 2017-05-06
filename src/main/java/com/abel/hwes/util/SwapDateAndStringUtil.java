@@ -60,7 +60,7 @@ public class SwapDateAndStringUtil {
             date = format.parse(str);
         } catch (Exception e) {
             log.error(e.getMessage());
-            date = StrToEndDate("2006-08-01");
+            date = StrToStartDate("2006-08-01");
         }
         return date;
     }

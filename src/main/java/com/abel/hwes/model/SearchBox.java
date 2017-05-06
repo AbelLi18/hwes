@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.abel.hwes.util.SwapDateAndStringUtil;
+
 public class SearchBox<T> {
 
     private String firstKeyword;
@@ -72,6 +74,10 @@ public class SearchBox<T> {
     }
 
     public void setStartDate(Date startDate) {
+        Date start_index = SwapDateAndStringUtil.StrToStartDate("2006-08-01");
+        if (startDate.getTime() < start_index.getTime()) {
+            startDate = start_index;
+        }
         this.startDate = startDate;
     }
 
@@ -80,6 +86,10 @@ public class SearchBox<T> {
     }
 
     public void setEndDate(Date endDate) {
+        Date end_index = SwapDateAndStringUtil.StrToEndDate("2006-08-31");
+        if (endDate.getTime() > end_index.getTime()) {
+            endDate = end_index;
+        }
         this.endDate = endDate;
     }
 }
