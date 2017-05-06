@@ -8,6 +8,7 @@ import java.util.List;
 import com.abel.hwes.common.JDBCAbstractCallBack;
 import com.abel.hwes.common.JDBCTemplate;
 import com.abel.hwes.dao.WordPropertyDao;
+import com.abel.hwes.util.StringUtil;
 
 public class WordPropertyDaoImpl implements WordPropertyDao {
 
@@ -17,6 +18,7 @@ public class WordPropertyDaoImpl implements WordPropertyDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    @Override
     public List<String> getWordContextList(String keyword) {
         String sql = "SELECT context FROM word_context where keyword = '" + keyword +
                      "' LIMIT 0,10";
@@ -24,7 +26,7 @@ public class WordPropertyDaoImpl implements WordPropertyDao {
         return jdbcTemplate.query(sql, new JDBCAbstractCallBack<String>() {
             @Override
             public String rsToObject(ResultSet rs) throws SQLException {
-                return rs.getString("context");
+                return StringUtil.moveSpecialChar(rs.getString("context"));
             }
 
             @Override

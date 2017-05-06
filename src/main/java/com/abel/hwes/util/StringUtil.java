@@ -29,4 +29,12 @@ public class StringUtil {
         }
         return "";
     }
+
+    public static String moveSpecialChar(String str) {
+        if (!isEmpty(str)) {
+            str = str.replace("\"", "");
+            return str;
+        }
+        return "";
+    }
 }
